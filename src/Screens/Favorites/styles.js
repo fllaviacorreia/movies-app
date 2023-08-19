@@ -4,9 +4,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'flex-start',
-        marginLeft: 10,
-        alignItems: 'center',
-        height: 30,
+        paddingLeft: 10,
+        alignItems: 'stretch',
+        height: 100,
+        width: '100%',
+        backgroundColor: "#777",
     },
     title: {
         fontFamily: "Montserrat",
@@ -23,10 +25,11 @@ const styles = StyleSheet.create({
     },
     button: {
         color: 'white',
-        width: 250,
+        width: '90%',
         backgroundColor: '#F9C84E',
         borderRadius: 10,
         textAlign: 'center',
+        marginTop: 5,
     },
 });
 
