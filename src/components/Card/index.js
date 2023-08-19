@@ -1,5 +1,6 @@
-import { Image, Pressable, Text, View, } from "react-native";
-import React, { useState } from 'react';
+import { Pressable, Text, View, } from "react-native";
+import { Image } from 'expo-image';
+import React from 'react';
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -12,9 +13,7 @@ export default function Card(movie) {
     ? movie.movie
     : { banner: "../../assets/icon.png", title: "Não definido" };
 
-  const image = movieItem.banner
-    ? { uri: '../' + movieItem.banner }
-    : { uri: "../../assets/icon.png" };
+  const image = JSON.stringify(movieItem.banner)
 
   //go to details page
   const navigateDetails = () => {
