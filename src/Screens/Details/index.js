@@ -12,7 +12,7 @@ export default function DetailsScreen({ route }) {
 
     const navigation = useNavigation();
 
-    const { getItem, setItem } = useAsyncStorage("@moviemigle:favorites");
+    const { getItem, setItem } = useAsyncStorage("@moviemingle:favorites");
 
     async function handleFavorite() {
         try {

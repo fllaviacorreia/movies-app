@@ -8,7 +8,7 @@ import styles from './styles';
 export default function FavoritesScreen() {
   const [movies, setMovies] = React.useState([]);
 
-  const { getItem, setItem } = useAsyncStorage("@moviemigle:favorites");
+  const { getItem, setItem } = useAsyncStorage("@moviemingle:favorites");
 
   async function handleFetchData() {
     const response = await getItem();
