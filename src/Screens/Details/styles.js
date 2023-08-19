@@ -3,16 +3,19 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height: '100%',
     },
     containerInfo:{
+        height: '100%',
         backgroundColor: '#000000c0',
         alignItems: 'stretch',
         justifyContent: 'flex-start',
+        padding: 'auto',
     },
     containerButton:{
         flex: 1,
-        backgroundColor: '#000000c0',
         justifyContent: 'center',
+        alignItems: 'center',
     },
     image: {
         flex: 1,
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
     text: {
         color: 'white',
         fontSize: 15,
-        lineHeight: 20,
+        lineHeight: 30,
         fontWeight: 'normal',
         textAlign: 'justify',
         fontFamily: 'Open-Sans',
@@ -37,17 +40,13 @@ const styles = StyleSheet.create({
     button:{
         color: 'white',
         width: 250,
-        padding: 20,
         backgroundColor: '#E74C3C',
         borderRadius: 10,
-        textAlign: 'center',
+        padding: 10,
     },
-    buttonInactive:{
+    textButton:{
         color: 'black',
-        width: 250,
-        padding: 20,
-        backgroundColor: '#EDEDED',
-        borderRadius: 10,
+        fontSize: 15,
         textAlign: 'center',
     },
 
