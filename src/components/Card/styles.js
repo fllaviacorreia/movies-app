@@ -8,21 +8,23 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5,
         height: 600,
+        width: 320,
     },
     card_template: {
-        width: 350,
+        width: 320,
         height: 600,
-        boxShadow: "10px 10px 17px -12px rgba(0,0,0,0.75)",
+        boxShadow: "10px 10px 17px -12px #000000c0",
     },
     card_image: {
-        width: 350,
         height: 600,
+        width: 400,
+        objectFit: 'fill',
         borderRadius: 10,
-        objectFit: 'contain',
+        maxWidth: '100%',
     },
     text_container: {
         position: "absolute",
-        width: 350,
+        width: 320,
         height: 30,
         bottom: 0,
         padding: 5,
@@ -37,28 +39,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: "center",
     },
-    centeredView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 22,
-        height: 400,
-    },
-    modalView: {
-        margin: 20,
-        backgroundColor: 'white',
-        borderRadius: 20,
-        padding: 35,
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-    },
+   
     button: {
         borderRadius: 20,
         padding: 10,
@@ -75,11 +56,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
-    modalText: {
-        fontFamily: "Open-Sans",
-        marginBottom: 15,
-        textAlign: 'center',
-    },
+  
 });
 
 export default styles;

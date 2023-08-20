@@ -1,8 +1,9 @@
 import React from 'react';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
-import { View, FlatList, Text, Pressable } from 'react-native';
+import { View, FlatList, Text, Pressable, ImageBackground } from 'react-native';
 
+import images from '../../img';
 import styles from './styles';
 
 export default function FavoritesScreen() {
@@ -39,12 +40,16 @@ export default function FavoritesScreen() {
         keyExtractor={item => item.id}
         renderItem={({ item }) =>
           <View style={styles.container}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Pressable style={styles.button} onPress={() => handleRemoveMovie(item.id)}>
-              <Text style={styles.text}>
-                Desfavoritar
-              </Text>
-            </Pressable>
+            <ImageBackground source={images[item.idLocal]} borderRadius={10} style={styles.image}>
+              <View style={styles.containerInfo}> 
+              <Text style={styles.title}>{item.title}</Text>
+                <Pressable style={styles.button} onPress={() => handleRemoveMovie(item.id)}>
+                  <Text style={styles.text}>
+                    Desfavoritar
+                  </Text>
+                </Pressable>
+              </View>
+            </ImageBackground>
           </View>
         }
       />

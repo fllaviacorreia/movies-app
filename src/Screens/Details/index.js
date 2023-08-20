@@ -6,14 +6,15 @@ import uuid from 'react-native-uuid';
 import styles from './styles';
 import React from "react";
 
+import images from "../../img";
+
 export default function DetailsScreen({ route }) {
     const movieFromRoute = { ...route.params.movie }
-    const image = movieFromRoute.banner;
 
     const navigation = useNavigation();
 
     const { getItem, setItem } = useAsyncStorage("@moviemingle:favorites");
-
+    
     async function handleFavorite() {
         try {
             const id = uuid.v4();
@@ -42,7 +43,7 @@ export default function DetailsScreen({ route }) {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={{ uri: image }} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={images[movieFromRoute.idLocal]} resizeMode="cover" style={styles.image}>
                 <View style={styles.containerInfo}>
                     <Text style={styles.title}>
                         {movieFromRoute.title}

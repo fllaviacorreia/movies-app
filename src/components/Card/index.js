@@ -1,9 +1,8 @@
-import { Pressable, Text, View, } from "react-native";
-import { Image } from 'expo-image';
+import { Pressable, Text, View, Image} from "react-native";
 import React from 'react';
 
 import { useNavigation } from "@react-navigation/native";
-
+import images from "../../img";
 import styles from './styles';
 
 export default function Card(movie) {
@@ -13,8 +12,6 @@ export default function Card(movie) {
     ? movie.movie
     : { banner: "../../assets/icon.png", title: "Não definido" };
 
-  const image = JSON.stringify(movieItem.banner)
-
   //go to details page
   const navigateDetails = () => {
     navigation.navigate('Detalhes', { movie: movieItem });
@@ -23,7 +20,7 @@ export default function Card(movie) {
   return (
     <Pressable style={styles.container} onPress={navigateDetails}>
       <View style={styles.card_template}>
-        <Image style={styles.card_image} source={image} />
+        <Image style={styles.card_image} source={images[movieItem.idLocal]} />
       </View>
       <View style={styles.text_container}>
         <Text style={styles.card_title}>{movieItem.title}</Text>

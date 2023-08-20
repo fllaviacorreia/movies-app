@@ -4,18 +4,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         height: '100%',
+        width: '100%',
     },
     containerInfo:{
         height: '100%',
+        width: '100%',
         backgroundColor: '#000000c0',
         alignItems: 'stretch',
         justifyContent: 'flex-start',
         padding: 'auto',
     },
     containerButton:{
+        height: '100%',
+        width: '100%',
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         alignItems: 'center',
+        marginBottom: 10,
     },
     image: {
         flex: 1,
@@ -30,8 +35,8 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
-        fontSize: 15,
-        lineHeight: 30,
+        fontSize: 17,
+        lineHeight: 35,
         fontWeight: 'normal',
         textAlign: 'justify',
         fontFamily: 'Open-Sans',
@@ -39,7 +44,7 @@ const styles = StyleSheet.create({
     },
     button:{
         color: 'white',
-        width: 250,
+        width: "90%",
         backgroundColor: '#E74C3C',
         borderRadius: 10,
         padding: 10,
