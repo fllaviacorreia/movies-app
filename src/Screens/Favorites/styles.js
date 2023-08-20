@@ -4,7 +4,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'flex-start',
-        padding: 10,
+        paddingTop: 30,
+        paddingLeft: 10,
+        paddingRight: 10,
         alignItems: 'stretch',
         height: 300,
         width: '100%',
@@ -40,13 +42,8 @@ const styles = StyleSheet.create({
         borderRadius: 10, 
     },
     image: {
-        flex: 1,
-        justifyContent: 'center',
-        borderRadius: "50px",
-        objectFit: 'cover',
-        height: '100%',
-        width: '100%',
-        boxShadow: "10px 10px 17px -12px #000000c0",
+       
+        borderRadius: 100,
     },
 });
 

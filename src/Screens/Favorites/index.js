@@ -40,7 +40,7 @@ export default function FavoritesScreen() {
         keyExtractor={item => item.id}
         renderItem={({ item }) =>
           <View style={styles.container}>
-            <ImageBackground source={images[item.idLocal]} borderRadius={10} style={styles.image}>
+            <ImageBackground source={images[item.idLocal]} borderRadius={10}>
               <View style={styles.containerInfo}> 
               <Text style={styles.title}>{item.title}</Text>
                 <Pressable style={styles.button} onPress={() => handleRemoveMovie(item.id)}>

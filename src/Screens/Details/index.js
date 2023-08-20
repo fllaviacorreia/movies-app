@@ -1,5 +1,4 @@
 import { ImageBackground, Text, Pressable, View, ToastAndroid, } from "react-native";
-import Toast from 'react-native-toast-message';
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import uuid from 'react-native-uuid';
@@ -9,10 +8,8 @@ import React from "react";
 import images from "../../img";
 
 export default function DetailsScreen({ route }) {
-    const movieFromRoute = { ...route.params.movie }
-
+    const movie = { ...route.params.movie }
     const navigation = useNavigation();
-
     const { getItem, setItem } = useAsyncStorage("@moviemingle:favorites");
     
     async function handleFavorite() {
@@ -23,9 +20,10 @@ export default function DetailsScreen({ route }) {
             const response = await getItem();
             const previousData = response ? JSON.parse(response) : [];
 
-            const filteredData = previousData.filter(item => item.idLocal !== movieFromRoute.idLocal);
+            //filter if has the movie in storage
+            const filteredData = previousData.filter(item => item.idLocal !== movie.idLocal);
 
-            const data = [...filteredData, { id, ...movieFromRoute }];
+            const data = [...filteredData, { id, ...movie }];
 
             // save Data in Async Storage
             await setItem(JSON.stringify(data));
@@ -43,19 +41,19 @@ export default function DetailsScreen({ route }) {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={images[movieFromRoute.idLocal]} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={images[movie.idLocal]} resizeMode="cover" style={styles.image}>
                 <View style={styles.containerInfo}>
                     <Text style={styles.title}>
-                        {movieFromRoute.title}
+                        {movie.title}
                     </Text>
                     <Text style={styles.text}>
-                        {movieFromRoute.sinopse}
+                        {movie.sinopse}
                     </Text>
                     <Text style={styles.text}>
-                        IMDB: {movieFromRoute.imdb}
+                        IMDB: {movie.imdb}
                     </Text>
                     <Text style={styles.text}>
-                        Lançamento: {movieFromRoute.lancamento}
+                        Lançamento: {movie.lancamento}
                     </Text>
                     <View style={styles.containerButton}>
                         <Pressable style={styles.button} onPress={handleFavorite}>
