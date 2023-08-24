@@ -40,10 +40,10 @@ Inicie o servidor
   npm start
 ```
 
-Abra o aplicativo Expo Go no seu dispositivo e escaneie o código QR ou insira manualmente a URI do projeto, ela inicia com 
+Abra o aplicativo Expo Go no seu dispositivo e escaneie o código QR ou insira manualmente a URI do projeto, ela se parece com a seguinte:
 
 ```
-exp://seu-ip:suaporta
+exp://10.0.1.3:8081
 ```
 
 
