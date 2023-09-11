@@ -1,48 +1,35 @@
 import React from 'react';
-import { useAsyncStorage } from '@react-native-async-storage/async-storage';
-import { useFocusEffect } from '@react-navigation/native';
-import { View, FlatList, Text, Pressable, ImageBackground } from 'react-native';
+import { View, FlatList, Text, Pressable, ImageBackground, ToastAndroid } from 'react-native';
 
 import images from '../../img';
 import styles from './styles';
 
+import { useFavoritesMovies } from '../../hooks';
+
 export default function FavoritesScreen() {
-  const [movies, setMovies] = React.useState([]);
 
-  const { getItem, setItem } = useAsyncStorage("@moviemingle:favorites");
-
-  async function handleFetchData() {
-    const response = await getItem();
-    const data = response ? JSON.parse(response) : [];
-    setMovies(data);
-  }
+  const { favorites, onRemoveFavorite } = useFavoritesMovies();
 
   async function handleRemoveMovie(id) {
-    const response = await getItem();
-    const previousData = response ? JSON.parse(response) : [];
-
-    const data = previousData.filter(movie => movie.id !== id);
-
-    await setItem(JSON.stringify(data));
-
-    setMovies(data);
+    try {
+      onRemoveFavorite({ id: id, list: favorites})
+      ToastAndroid.show("Filme desfavoritado com sucesso!", ToastAndroid.SHORT);
+    } catch (error) {
+      console.log(error);
+      ToastAndroid.show("Ocorreu um erro ao desfavoritar o filme.", ToastAndroid.LONG);
+    }
   }
-
-  useFocusEffect(React.useCallback(() => {
-    handleFetchData();
-  }, []));
-
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={movies}
+        data={favorites}
         keyExtractor={item => item.id}
         renderItem={({ item }) =>
           <View style={styles.container}>
             <ImageBackground source={images[item.idLocal]} borderRadius={10}>
-              <View style={styles.containerInfo}> 
-              <Text style={styles.title}>{item.title}</Text>
+              <View style={styles.containerInfo}>
+                <Text style={styles.title}>{item.title}</Text>
                 <Pressable style={styles.button} onPress={() => handleRemoveMovie(item.id)}>
                   <Text style={styles.text}>
                     Desfavoritar

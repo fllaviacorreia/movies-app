@@ -10,6 +10,7 @@ var images = [
     require('../assets/movies/8.jpg'),
     require('../assets/movies/9.jpg'),
     require('../assets/movies/10.jpg'),
+    require('../assets/adaptive-icon.png')
 ];
 
 export default images;

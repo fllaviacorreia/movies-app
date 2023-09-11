@@ -1,20 +1,23 @@
-import { Pressable, Text, View, Image} from "react-native";
 import React from 'react';
-
+import { Pressable, Text, View, Image} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { FavoritesContext } from "../../context";
 import images from "../../img";
 import styles from './styles';
 
+
 export default function Card(movie) {
+  const {onSaveDetails} = React.useContext(FavoritesContext);
   const navigation = useNavigation();
   
-  const movieItem = movie.movie
-    ? movie.movie
-    : { banner: "../../assets/icon.png", title: "Não definido" };
+  const movieItem = movie.movie.item
+    ? movie.movie.item
+    : { idLocal: 11, banner: "../../../assets/icon.png", title: "Não definido" };
 
   //go to details page
-  const navigateDetails = () => {
-    navigation.navigate('Detalhes', { movie: movieItem });
+  function navigateDetails(){
+    onSaveDetails({detailsMovie: movieItem});
+    navigation.navigate('Detalhes');
   };
 
   return (

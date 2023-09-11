@@ -1,10 +1,11 @@
 import 'react-native-gesture-handler';
 
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 import { useFonts } from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
 
 import { AppNavigator } from './src/navigation/AppNavigation';
+import { FavoritesProvider } from './src/context';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,6 +24,9 @@ export default function App() {
   }
 
   return (
-    <AppNavigator/>
+
+    <FavoritesProvider>
+      <AppNavigator />
+    </FavoritesProvider>
   );
 }
